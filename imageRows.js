@@ -20,6 +20,17 @@ function setImgHeight(img, howHigh)
    img.style.height = howHigh + "px";
 }
 
+
+function setlooplessHeight(imgArr, wantedWidth)
+{
+   var ratio = imgArr[0].offsetHeight / widthAllImgsInRow(imgArr);
+   for(var i = 0; i < imgArr.length; i++)
+   {
+      setImgHeight(imgArr[i], wantedWidth * ratio);
+   }
+}
+
+
 // not used! this takes way too much time to load, so setlooplessHeight is the better option
 function setHeightsUntilWidth(imgArr, wantedWidth)
 {
@@ -41,31 +52,19 @@ function setHeightsUntilWidth(imgArr, wantedWidth)
 }
 
 
+const WIDTH = 597; // width of all picture in one row
+
+// Timeout because all images should all be loaded beforehand
 // sets the same height of all images in one array, way more efficient than setHeightsUntilWidth
-function setlooplessHeight(imgArr, wantedWidth)
+setTimeout(function()
 {
-   var ratio = imgArr[0].offsetHeight / widthAllImgsInRow(imgArr);
-   for(var i = 0; i < imgArr.length; i++)
+   // basic variable that is going to be worked with, contain on row of imgs at once in loop
+   var allRows = document.getElementsByClassName("row");
+   var currentRow;
+   for(var row = 0; row < allRows.length; row++)
    {
-      setImgHeight(imgArr[i], wantedWidth * ratio);
+      currentRow = allRows[row].getElementsByTagName("img");
+      setlooplessHeight(currentRow, WIDTH);
+      console.log("angepasst");
    }
-}
-
-
-// basic variable that is going to be worked with, contain on row of imgs at once in loop
-var allRows = document.getElementsByClassName("row");
-const WIDTH = 597; //
-
-var currentRow;
-for(var row = 0; row < allRows.length; row++)
-{
-   currentRow = allRows[row].getElementsByTagName("img");
-   setlooplessHeight(currentRow, WIDTH);
-}
-
-// reloading the page once because script would only work after reaload sometimes
-// not my idea, source: http://stackoverflow.com/questions/6160415/reload-an-html-page-just-once-using-javascript
-if(window.location.href.substr(-2) !== "?r")
-{
-   window.location = window.location.href + "?r";
-}
+}, 2000);
