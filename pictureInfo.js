@@ -1,4 +1,9 @@
-/* Was mach das Skript hier? */
+/* This manipulates infoboxes under images so that they are expanded when
+   the cursor hovers above them and contracted when the cursor leaves the
+   picture or its infobox.
+   Note that I am still a beginner and all this is most probably not at all
+   the best to do it. */
+   
 const INFO_HEIGHT = 150; // height of infoboxes in px
 const TIMEOUT = 16; // time between animation frames in ms
 
