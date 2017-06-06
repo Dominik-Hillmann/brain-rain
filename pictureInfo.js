@@ -1,27 +1,20 @@
 /* This manipulates infoboxes under images so that they are expanded when
-   the cursor hovers above them and contracted when the cursor leaves the
+   they are clicked and contracted when the cursor leaves the
    picture or its infobox.
    Note that I am still a beginner and all this is most probably not at all
    the best to do it. */
-   
-const INFO_HEIGHT = 150; // height of infoboxes in px
-const TIMEOUT = 16; // time between animation frames in ms
 
-// replaces first CSS class of this element with second one
-function replaceClass(ele, from, to)
-{
-   if(ele.classList[0] == from)
-   {
-      ele.classList.remove(from);
-      ele.classList.add(to);
-   }
-}
+const INFO_HEIGHT = 175; // height of infoboxes in px
+const PIXELS_EXPAND = 7; // by how many pixels in one animation frame should the boxes expand or contract?
+const PIXELS_CONTRACT = 5;
+var allInfoWrappers = document.getElementsByClassName("infoboxWrapper");
 
-// eventHandler: expands the infobox of an image when the cursor enters the element
-function expandBox(imgWrapperEle)
+// event handler: expands the infobox of an image when the cursor enters the element
+function expandBox(imgWrapperEle, index)
 {
    return function()
    {
+      allInfoWrappers[index].removeEventListener("click", expandBox(allInfoWrappers[index], index));
       var belongingImg = imgWrapperEle.getElementsByTagName("img")[0];
       var infoBox = imgWrapperEle.getElementsByClassName("infobox")[0]; // index operator because getElementsByClassName returns array
       if(infoBox == undefined) // because when not first animation frame, it cannot be found via class infobox
@@ -29,33 +22,32 @@ function expandBox(imgWrapperEle)
          infoBox = imgWrapperEle.getElementsByClassName("startExpanding")[0];
       }
 
-      replaceClass(infoBox, "infobox", "startExpanding");
+      replaceClass(infoBox, "infobox", "startExpanding"); // to be found in dropdown.js
       // change height and width of infobox
       infoBox.style.marginTop = "10px";
-      for(var i = 0; i <= INFO_HEIGHT; i++)
+      infoBox.style.marginBottom = "10px";
+
+      function expand()
       {
-         setTimeout(function()
+         if(infoBox.offsetHeight <= INFO_HEIGHT)
          {
-            if(infoBox.offsetHeight <= INFO_HEIGHT)
-            {
-               infoBox.style.height = (infoBox.offsetHeight + 1) + "px";
-            }
-            else
-            {
-               contractBox(imgWrapperEle);
-            }
-         }, TIMEOUT);
+            infoBox.style.height = (infoBox.offsetHeight + PIXELS_EXPAND) + "px";
+            window.requestAnimationFrame(expand);
+         }
       }
-      // infobox makes infobox as wide as the image it belongs to
-      infoBox.style.width = belongingImg.offsetWidth + "px";
+      expand();
+
+      infoBox.style.width = belongingImg.offsetWidth + "px"; // makes infobox as wide as the image it belongs to
+      allInfoWrappers[index].addEventListener("mouseleave", contractBox(allInfoWrappers[index], index));
    }
 }
 
 // event handler: contracts infobox when cursor leaves
-function contractBox(imgWrapperEle)
+function contractBox(imgWrapperEle, index)
 {
    return function()
    {
+      allInfoWrappers[index].removeEventListener("mouseleave", contractBox(allInfoWrappers[index], index));
       var belongingImg = imgWrapperEle.getElementsByTagName("img")[0];
       var infoBox = imgWrapperEle.getElementsByClassName("startExpanding")[0]; // serach for infoBox by class switched
       if(infoBox == undefined)
@@ -63,40 +55,27 @@ function contractBox(imgWrapperEle)
          infoBox = imgWrapperEle.getElementsByClassName("infobox")[0];
       }
 
-      function actualContract() // as function because needed a second time further down
+      function contract() // as function because needed a second time further down
       {
-         for(var i = INFO_HEIGHT; i >= 0; i--) // animation, if something goes wrong, it is set to 0 at end of function
+         if(infoBox.offsetHeight >= 15)
          {
-            setTimeout(function()
-            {
-               if(infoBox.offsetHeight >= 0)
-               {
-                  infoBox.style.height = (infoBox.offsetHeight - 1) + "px";
-               }
-            }, TIMEOUT);
+            infoBox.style.height = (infoBox.offsetHeight - PIXELS_CONTRACT) + "px";;
+            window.requestAnimationFrame(contract);
          }
       }
+      contract();
 
-      actualContract();
-      infoBox.style.marginTop = "0px"; // now after because first smaller infobox, then no margin anymore
+      infoBox.style.margin = "0px";
+      imgWrapperEle.style.margin = "0px";
       replaceClass(infoBox, "startExpanding", "infobox");
-      setTimeout(function()
-      {
-         if(infoBox.offsetHeight >= 150)
-         {
-            actualContract();
-         }
-      }, TIMEOUT * INFO_HEIGHT);
+      allInfoWrappers[index].addEventListener("click", expandBox(allInfoWrappers[index], index));
    }
 }
 
-// needed because pictures have to have been given new
 setTimeout(function()
 {
-   var allInfoWrappers = document.getElementsByClassName("infoboxWrapper");
    for(var i = 0; i < allInfoWrappers.length; i++)
    {
-      allInfoWrappers[i].addEventListener("mouseenter", expandBox(allInfoWrappers[i]));
-      allInfoWrappers[i].addEventListener("mouseleave", contractBox(allInfoWrappers[i]));
+      allInfoWrappers[i].addEventListener("click", expandBox(allInfoWrappers[i], i));
    }
 }, 2500); // 2.5s because other .js files need to be loaded first
