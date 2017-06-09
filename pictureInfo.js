@@ -59,7 +59,7 @@ function contractBox(imgWrapperEle, index)
       {
          if(infoBox.offsetHeight >= 15)
          {
-            infoBox.style.height = (infoBox.offsetHeight - PIXELS_CONTRACT) + "px";;
+            infoBox.style.height = (infoBox.offsetHeight - PIXELS_CONTRACT) + "px";
             window.requestAnimationFrame(contract);
          }
       }
