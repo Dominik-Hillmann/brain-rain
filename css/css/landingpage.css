@@ -1,0 +1,106 @@
+@import 'https://fonts.googleapis.com/css?family=Questrial|';
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|';
+/*Loading fonts Kameron for Text and Questrial for bigger stuff*/
+
+* {
+    margin: 0px;
+    color: white;
+    font-family: 'Questrial';
+}
+
+html {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: auto;
+    width 100%;
+}
+
+body {
+    background: url(../pictures/START%20Bild.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: auto;
+    width: 100%;
+}
+
+header {
+    max-height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 7%;
+}
+
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: -25px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    font-family: 'Questrial';
+    border-bottom: 1px solid;
+    font-size: 50px;
+    letter-spacing: 13px;
+}
+
+p {
+    text-align: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.2;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 20px;
+    font-family: 'Open Sans';
+}
+
+header div img {
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+a p {
+    max-width: 230px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border: 1px solid;
+    font-size: 21px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+span {
+    color: red;
+}
+
+#madewith {
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+
+#madewith img {
+    display: inline-block;
+    height: 13px;
+    margin-top: 20px;
+}

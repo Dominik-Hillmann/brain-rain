@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Questrial');
+
+#gallerywrapper {
+    margin-right: 150px;
+    margin-left: 150px;
+    min-width: 900px;
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    font-size: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#gallerywrapper * {
+    text-align: center;
+    /*margin-right: 30px;*/
+}
+.category {
+    display: block;
+    margin-bottom: 70px;
+    text-align: right;
+    min-width: 800px;
+    padding-left: ;
+}
+.category:last-child {
+    margin-bottom: 0px;
+    border-left: 1px white;
+}
+.title {
+    display: inline-block;
+    width: 130px;
+    text-align: right;
+    vertical-align: top;
+    margin-right: 0px;
+    width: 160px;
+}
+/* idea of the pushback: because of the class title, all the pictures
+ * are constantly pushed to the right while you actually want them to
+ * be in the middle.
+ * Solution: define an inline-block div on the opposite side of the pic-
+ * tures and make it as big as the left one.
+ */
+
+.pushBack {
+    display: inline-block;
+}
+.pictures {
+    display: inline-block;
+    width: 645px;
+}
+.pictures img {
+    background-color: white;
+    height: 250px;
+    border-radius: 5px;
+    margin: 0px;
+    margin-bottom: -10px; /* wegen des InfoboxWrappers sind Abstaende groesser geworden, das behebt es. */
+}
+
+/* *** Infoboxen *** */
+
+.infoboxWrapper {
+   vertical-align: top;
+   margin-bottom: 10px;
+   display: inline-block;
+   overflow: hidden;
+   height: 100%;
+}
+.infobox * {
+   display: hidden;
+   width: 0px; /* da hidden trotzdem noch Platz wegnehmen würde */
+   height: 0px;
+   overflow: hidden;
+   font-size: 0px;
+}
+.infobox h1 {
+   display: hidden;
+   height: 0px;
+   width: 0px;
+}
+.infobox p {
+   display: hidden;
+   height: 0px;
+   width: 0px;
+}
+.startExpanding {
+   display: block;
+   height: 1px;
+   width: 1px;
+   overflow: hidden;
+   font-size: 10px;
+   font-style: normal;
+}
+.infoboxWrapper img {
+   cursor: pointer;
+}
+.infobox {
+   font-size: 100px;
+   font-family: 'Open Sans', sans-serif;
+   margin: 0px;
+   padding: 0px;
+}

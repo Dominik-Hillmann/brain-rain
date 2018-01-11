@@ -95,4 +95,3 @@ for(var i = 0; i < subNodes.length; i++)
    replaceClass(subNodes[i], "showDrop", "drop");
    subNodes[i].style.width = "0px";
 }
-console.log(sections.widths);

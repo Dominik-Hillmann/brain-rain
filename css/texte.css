@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Questrial');
+
+/***** NEU *****/
+
+.texteWrapper {
+   margin-left: 100px;
+   margin-right: 100px;
+   margin-bottom: 50px;
+   min-width: 638px;
+   border: 1px white;
+}
+.headlineLinks {
+   display: inline-block;
+   color: white;
+   font-family: 'Questrial', sans-serif;
+   width: 48%;
+   font-size: 25px;
+   vertical-align: top;
+}
+.headlineLinks div {
+   float: left;
+   width: 100%;
+   vertical-align: text-top;
+   text-align: left;
+   display: inline;
+   margin-top: -15px;
+   margin-bottom: 0px;
+   padding-bottom: 0px;
+}
+.headlineLinks div a, .TextRechts a {
+   text-decoration: none;
+   color: white;
+}
+.headlineLinks div a:hover, .TextRechts a:hover {
+   text-decoration: underline;
+}
+.headlineLinks p {
+   font-size: 13px;
+}
+.TextRechts {
+   display: inline-block;
+   color: white;
+   width: 48%;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 13px;
+}
+.TextRechts div {
+   display: inline-block;
+   float: left;
+   width: 50px;
+}
+/*.TextRechts a {
+   text-decoration: none;
+   color: white;
+}
+.TextRechts a:hover {
+   text-decoration: underline;
+}*/
+.author, .date {
+   float: left;
+   color: white;
+   font-family: 'Questrial', sans-serif;
+   margin-top: -20px;
+}
+.date:before {
+   content: "\00a0 am ";
+}

@@ -1,0 +1,29 @@
+#impressum {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    max-width: 800px;
+    font-family: 'Open Sans', sans-serif;
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h1 {
+    font-family: 'Questrial', sans-serif;
+    font-size: 27px;
+}
+
+h2 {
+    font-family: 'Questrial', sans-serif;
+    font-size: 20px;
+}
+
+#impressum p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+#namen * {
+   display: inline-block;
+}

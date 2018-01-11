@@ -13,13 +13,11 @@ function widthAllImgsInRow(imgArr)
    return widthsCombined;
 }
 
-
 // set height of one image
 function setImgHeight(img, howHigh)
 {
    img.style.height = howHigh + "px";
 }
-
 
 function setlooplessHeight(imgArr, wantedWidth)
 {
@@ -29,7 +27,6 @@ function setlooplessHeight(imgArr, wantedWidth)
       setImgHeight(imgArr[i], wantedWidth * ratio);
    }
 }
-
 
 // not used! this takes way too much time to load, so setlooplessHeight is the better option
 function setHeightsUntilWidth(imgArr, wantedWidth)
@@ -51,7 +48,6 @@ function setHeightsUntilWidth(imgArr, wantedWidth)
    }
 }
 
-
 const WIDTH = 597; // width of all picture in one row
 
 // Timeout because all images should all be loaded beforehand
@@ -65,6 +61,5 @@ setTimeout(function()
    {
       currentRow = allRows[row].getElementsByTagName("img");
       setlooplessHeight(currentRow, WIDTH);
-      console.log("angepasst");
    }
 }, 2000);
