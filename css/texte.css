@@ -27,11 +27,11 @@
    margin-bottom: 0px;
    padding-bottom: 0px;
 }
-.headlineLinks div a, .TextRechts a {
+.headlineLinks div a {
    text-decoration: none;
    color: white;
 }
-.headlineLinks div a:hover, .TextRechts a:hover {
+.headlineLinks div a:hover {
    text-decoration: underline;
 }
 .headlineLinks p {
@@ -49,13 +49,13 @@
    float: left;
    width: 50px;
 }
-/*.TextRechts a {
+.TextRechts a {
    text-decoration: none;
    color: white;
 }
 .TextRechts a:hover {
    text-decoration: underline;
-}*/
+}
 .author, .date {
    float: left;
    color: white;
