@@ -16,12 +16,14 @@ html {
     width 100%;
 }
 
-body {
+body { /*************CHANGED************/
     background: url(../pictures/START%20Bild.png) no-repeat center center fixed;
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
     height: auto;
     width: 100%;
 }

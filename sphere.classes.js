@@ -198,9 +198,9 @@ class Layer
       {
          var point = this.points[i];
          var dist = distance(point.x, point.x, startPoint);
-         point.color.r = Math.round(map(dist, 0, SPHERE_RADIUS, cg.start.r, cg.end.r));
-         point.color.g = Math.round(map(dist, 0, SPHERE_RADIUS, cg.start.g, cg.end.g));
-         point.color.b = Math.round(map(dist, 0, SPHERE_RADIUS, cg.start.b, cg.end.b));
+         point.color.r = Math.round(map(dist, 0, sphereRadius, cg.start.r, cg.end.r));
+         point.color.g = Math.round(map(dist, 0, sphereRadius, cg.start.g, cg.end.g));
+         point.color.b = Math.round(map(dist, 0, sphereRadius, cg.start.b, cg.end.b));
       }
    }
 

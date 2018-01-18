@@ -26,39 +26,41 @@
 
    <?php
 
-      $possibilities = // naming options here to later call functions named the same
+   $possibilities = // naming options here to later call functions named the same
+   [
+      0 => 'sphere',
+      1 => 'oldBackground'
+   ];
+
+
+   function sphere()
+   {
+      $p5sources =
       [
-         0 => 'sphere',
-         1 => 'oldBackground'
+         0 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js",
+         1 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js",
+         2 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js", // libs, now the sktech
+         3 => "/sphere.classes.js",
+         4 => "/sphere.sketch.js"
       ];
 
-      function sphere()
-      {
-         $p5sources =
-         [
-            0 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js",
-            1 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js",
-            2 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js", // libs, now the sktech
-            3 => "/sphere.classes.js",
-            4 => "/sphere.sketch.js"
-         ];
+      for($i = 0; $i < count($p5sources); $i++)
+         echo '<script type="text/javascript" src="' . ($p5sources[$i] . '"></script>');
+   }
 
-         for($i = 0; $i < count($p5sources); $i++)
-            echo '<script type="text/javascript" src="' . ($p5sources[$i] . '"></script>');
-      }
-
-      sphere();
+   sphere();
 
 
-      $numPossib = 2;            // how many possible backgroudn are available?
-      $r = rand(0, $numPossib);  // a random value
+
+   $numPossib = 2;            // how many possible backgroudn are available?
+   $r = rand(0, $numPossib);  // a random value
 
 
-      $posBack =           // possible backgrounds
-      [
-         0 => 'sphere',    // sphere
-         1 => 'start'      // old background
-      ];
+   $posBack =           // possible backgrounds
+   [
+      0 => 'sphere',    // sphere
+      1 => 'start'      // old background
+   ];
 
       // echo '<p>PHP-Version</p>';
 
