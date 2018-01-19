@@ -22,9 +22,11 @@
 
 </head>
 
-<body>
+<!--<body> Test kein Body -->
 
    <?php
+
+   // echo '<body class="nonsense">';
 
    $possibilities = // naming options here to later call functions named the same
    [
@@ -32,9 +34,11 @@
       1 => 'oldBackground'
    ];
 
-
+   // Creates p5 canvas. The JS-Code is responsible for making it a background
    function sphere()
    {
+      echo '<body>'; // first the body tag without a CSS class
+
       $p5sources =
       [
          0 => "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js",
@@ -48,7 +52,13 @@
          echo '<script type="text/javascript" src="' . ($p5sources[$i] . '"></script>');
    }
 
+   function oldBackground()
+   {
+      echo '<body id="background">';
+   }
+
    sphere();
+   //oldBackground();
 
 
 
@@ -76,7 +86,7 @@
             <img src="pictures/brainrainwhite.png" alt="Brainrain Logo">
             <h1>BRAINRAIN</h1>
             <p>Egal, wie du es durch die bunten verwuselten Weiten des unendlichen Netzes in unser kleines, feuchtes und in der oberen linken Ecke leicht angeschimmeltes Crackloch gefunden hast, wir heißen dich willkommen! Fühl dich wohl, nimm dir schonmal eine Spritze und bereite Venen und Hirn auf eine große Dosis Awesomeness vor.</p>
-            <a href="texte.html"><p>Treten Sie ein.<br>Nichts anfassen.<br>ಠ_ಠ<br>PHP</p></a>
+            <a href="texte.html"><p>Treten Sie ein.<br>Nichts anfassen.<br>ಠ_ಠ</p></a>
         </div>
     </header>
 

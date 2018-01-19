@@ -17,7 +17,7 @@ html {
 }
 
 body { /*************CHANGED************/
-    background: url(../pictures/START%20Bild.png) no-repeat center center fixed;
+    background: url(../START%20Bild.png) no-repeat center center fixed;
 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -27,6 +27,7 @@ body { /*************CHANGED************/
     height: auto;
     width: 100%;
 }
+
 
 header {
     max-height: 500px;
