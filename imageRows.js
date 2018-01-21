@@ -62,4 +62,4 @@ setTimeout(function()
       currentRow = allRows[row].getElementsByTagName("img");
       setlooplessHeight(currentRow, WIDTH);
    }
-}, 2000);
+}, 1000);

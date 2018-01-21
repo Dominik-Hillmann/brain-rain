@@ -3,7 +3,7 @@
    a change in sections.names results in a new link in the navigation. */
 
 const EXPANDPXLS = 2; // by how many px is element expanded in one step
-var linkBilder = "http://www.brain-rain.net/bilder.html";
+var linkBilder = "http://www.brain-rain.net/bilder.php";
 // if new category, just change sections.names and it will appear
 var sections =
 {
@@ -15,7 +15,7 @@ var sections =
 // returns url with anker to the subcategory
 sections.getLinkAt = function(index)
 {
-   return linkBilder + "#" + this.names[index];
+   return linkBilder + "?category=" + index;
 }
 
 // replaces a class of given element with another one
@@ -81,10 +81,10 @@ bilderNode.addEventListener("mouseenter", expandSubCategories);
 var subNodes = [];
 for(var i = 0; i < sections.names.length; i++)
 {
-   subNodes.push(bilderNode.appendChild(document.createElement("a")));  // adding child node
+   subNodes.push(bilderNode.appendChild(document.createElement("a"))); // adding child node
    subNodes[i].appendChild(document.createTextNode(sections.names[i])); // add the text node
-   subNodes[i].classList.add("drop");                                   // give it its initial class
-   subNodes[i].href = sections.getLinkAt(i);                            // give it its url to subcategory
+   subNodes[i].classList.add("drop"); // give it its initial class
+   subNodes[i].href = sections.getLinkAt(i); // give it its url to subcategory
 }
 // give it .showDrop for a short time to save the width and height it is supposed to have at end of animation
 for(var i = 0; i < subNodes.length; i++)

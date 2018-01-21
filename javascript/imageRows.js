@@ -13,21 +13,28 @@ function widthAllImgsInRow(imgArr)
    return widthsCombined;
 }
 
-// sets height of all imgs in one row to "howHigh" pxs
-function setRowHeight(imgArr, howHigh)
+// set height of one image
+function setImgHeight(img, howHigh)
 {
+   img.style.height = howHigh + "px";
+}
+
+function setlooplessHeight(imgArr, wantedWidth)
+{
+   var ratio = imgArr[0].offsetHeight / widthAllImgsInRow(imgArr);
    for(var i = 0; i < imgArr.length; i++)
    {
-      imgArr[i].style.height = howHigh + "px";
+      setImgHeight(imgArr[i], wantedWidth * ratio);
    }
 }
 
-// changes heights of imgs in row until they have wantedWidth
+// not used! this takes way too much time to load, so setlooplessHeight is the better option
 function setHeightsUntilWidth(imgArr, wantedWidth)
 {
+   var imgArrWidth = widthAllImgsInRow(imgArr); // because of performance problems otherwise
    if(widthAllImgsInRow(imgArr) <= wantedWidth)
    {
-      for(var pixels = 80; widthAllImgsInRow(imgArr) <= wantedWidth; pixels++)
+      for(var pixels = 0; widthAllImgsInRow(imgArr) <= wantedWidth; pixels++)
       {
          setRowHeight(imgArr, pixels);
       }
@@ -41,12 +48,18 @@ function setHeightsUntilWidth(imgArr, wantedWidth)
    }
 }
 
-// basic variable that is going to be worked with, contain on row of imgs at once in loop
-var allRows = document.getElementsByClassName("row");
-const WIDTH = 600; // how wide are img rows going to be?
-for(var row = 0; row < allRows.length; row++)
+const WIDTH = 597; // width of all picture in one row
+
+// Timeout because all images should all be loaded beforehand
+// sets the same height of all images in one array, way more efficient than setHeightsUntilWidth
+setTimeout(function()
 {
-   console.log(row, " 1: ", widthAllImgsInRow(allRows[row].getElementsByTagName("img")));
-   setHeightsUntilWidth(allRows[row].getElementsByTagName("img"), WIDTH);
-   console.log(row, " 2: ", widthAllImgsInRow(allRows[row].getElementsByTagName("img")));
-}
+   // basic variable that is going to be worked with, contain on row of imgs at once in loop
+   var allRows = document.getElementsByClassName("row");
+   var currentRow;
+   for(var row = 0; row < allRows.length; row++)
+   {
+      currentRow = allRows[row].getElementsByTagName("img");
+      setlooplessHeight(currentRow, WIDTH);
+   }
+}, 1000);

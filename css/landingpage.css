@@ -17,8 +17,8 @@ html {
 }
 
 body { /*************CHANGED************/
-    background: url(../START%20Bild.png) no-repeat center center fixed;
-
+    /*background: url(../START%20Bild.png) no-repeat center center fixed;*/
+    /* nicht mehr genutzt bis mehrere Alternativen verfuegbar */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -3,7 +3,7 @@
    a change in sections.names results in a new link in the navigation. */
 
 const EXPANDPXLS = 2; // by how many px is element expanded in one step
-var linkBilder = "http://www.brain-rain.net/bilder.html";
+var linkBilder = "http://www.brain-rain.net/bilder.php";
 // if new category, just change sections.names and it will appear
 var sections =
 {
@@ -15,7 +15,7 @@ var sections =
 // returns url with anker to the subcategory
 sections.getLinkAt = function(index)
 {
-   return linkBilder + "#" + this.names[index];
+   return linkBilder + "?category=" + index;
 }
 
 // replaces a class of given element with another one
