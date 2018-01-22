@@ -29,9 +29,10 @@ function windowResized() // event: resizing canvas so that it fits into resized 
 
 function setup()
 {
-   sphereRadius = Math.floor(0.85 * window.innerHeight);
    width = windowWidth;
    height = windowHeight;
+   sphereRadius = Math.round(0.5 * windowWidth); // new window size --> new radius
+   sphereRadius -= Math.round(0.1 * windowWidth);
    middlePoint = new Position(width / 2, height / 2);
 
    canvas = createCanvas(width, height);
@@ -132,7 +133,7 @@ function draw()
 {
    background(0, 0, 0);
    cursor.update();
-   
+
    for(var i = 0; i < layers.length; i++)
    {
       layers[i].movePoints(cursor);
@@ -145,7 +146,7 @@ function draw()
 function setupOnResize()
 {
    sphereRadius = Math.round(0.5 * windowWidth); // new window size --> new radius
-   sphereRadius -= 10;                           // few px less wide because otherwiese points missing at sphere's "equator"
+   sphereRadius -= Math.round(0.1 * windowWidth);                           // few px less wide because otherwiese points missing at sphere's "equator"
    layers = [];                                  // therefore clear all layers
    width = windowWidth;
    height = windowHeight;                        // new width and height
