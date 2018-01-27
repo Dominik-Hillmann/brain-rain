@@ -1,0 +1,76 @@
+/***** FONTS *****/
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/***** DESKTOP DEVICES *****/
+/***** General *****/
+body { }
+
+* {
+   margin: 0;
+}
+
+/***** Header *****/
+
+header {
+   background-color: black;
+   width: 100%;
+   height: 85px; /* smaller if width gets smaller --> handheld */
+   display: block;
+   vertical-align: middle;
+}
+
+header div {
+      vertical-align: middle;
+      display: inline-block;
+      margin-left: 40px;
+}
+
+header * {
+   display: inline;
+   height: 100%;
+}
+
+header img { /* logo */
+   height: 75px;
+   margin-top: 5px;
+   margin-left: 15px;
+   margin-right: 15px;
+}
+
+header h1 {
+   color: white;
+   height: 90px;
+   display: inline-block;
+   vertical-align: top;
+   margin-top: 25px; /* == (header-height - font-size) / 2*/
+   font-size: 40px;
+   font-family: 'Montserrat', sans-serif;
+}
+
+#topics {
+   color: white;
+   display: inline-block;
+   height: 100px;
+   float: right;
+   margin-right: 70px;
+   font-size: 17px;
+   margin-top: 50px;
+
+   font-family: sans-serif;
+
+}
+#topics div {
+   margin: 0;
+}
+
+#topics div img {
+   height: 10px;
+   width: 10px;
+}
+
+
+
+
+/***** HANDHELD DEVICES *****/
+
+/*later: header TRANSITION TO SMALLER like 75px*/
